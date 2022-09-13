@@ -5,8 +5,6 @@ from pymongo import MongoClient
 client = MongoClient('mongodb+srv://test:sparta@cluster0.m1zs4k9.mongodb.net/Cluster0?retryWrites=true&w=majority')
 db = client.dbsparta
 
-import pyautogui
-
 @app.route('/')
 def home():
     return render_template('index.html')
