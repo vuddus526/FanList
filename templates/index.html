@@ -131,10 +131,15 @@
 
         function commentUpdate(commentNum) {
             let imsiCommentNum = commentNum
-            console.log(imsiCommentNum)
 
             let comment = prompt('변경할 코멘트를 입력하세요');
-            let passwd = prompt('비밀번호를 입력하세요', '숫자만 입력하세요');
+            let passwd = "";
+
+            if (comment == null){
+                return
+            }else {
+                passwd = prompt('비밀번호를 입력하세요', '숫자만 입력하세요');
+            }
 
             $.ajax({
                 type: 'POST',

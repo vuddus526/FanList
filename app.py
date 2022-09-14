@@ -61,7 +61,7 @@ def homeworkUpdate_post():
         db.homework.update_one({'commentNum': commentNum_receive},{'$set':{'comment':comment_receive}})
         return jsonify({'msg': '업데이트 완료!'})
     else:
-        return jsonify({'msg':'비밀번호를 다시 입력해주세요'})
+        return jsonify({'msg':'비밀번호를 확인 후 다시 입력해주세요'})
 
 @app.route("/homework/delete", methods=["POST"])
 def homeworkDelete_post():
@@ -75,7 +75,7 @@ def homeworkDelete_post():
         db.homework.delete_one({'commentNum': commentNum_receive})
         return jsonify({'msg': '삭제 완료!'})
     else:
-        return jsonify({'msg':'비밀번호를 다시 입력해주세요'})
+        return jsonify({'msg':'비밀번호를 확인 후 다시 입력해주세요'})
 
 if __name__ == '__main__':
     app.run('0.0.0.0', port=5000, debug=True)
