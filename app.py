@@ -16,11 +16,6 @@ def homework_post():
     passwd_receive = str(request.form['passwd_give'])
     commentNum = int(request.form['commentNum_give'])
 
-    print(name_receive)
-    print(comment_receive)
-    print(passwd_receive)
-    print(commentNum)
-
     doc = {
         'name': name_receive,
         'comment': comment_receive,
@@ -29,14 +24,13 @@ def homework_post():
     }
 
     imsiCommentNum = db.homework.find_one({'commentNum': commentNum})
-    print(imsiCommentNum)
+
     if imsiCommentNum is None:
         db.homework.insert_one(doc)
     else:
         commentNumList = list(db.homework.find({},{'_id':False}))
-        print(commentNumList)
+
         commentNumListLen = len(commentNumList)
-        print(commentNumListLen)
 
         commentNum += commentNumListLen
         doc = {
